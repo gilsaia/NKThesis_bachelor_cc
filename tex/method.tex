@@ -1,4 +1,3 @@
-% !TeX root = ../main.tex
 % -*- coding: utf-8 -*-
 
 \chapter{常用包}
@@ -44,10 +43,10 @@ really ``show'' how things will look like.
 
 \section{代码块}
 \label{sec:method:code}
+通过minted宏包自动处理代码，预先定义好了Python和C++代码环境
 
-python 代码可以直接使用\textbf{python}环境
-
-\begin{python}[caption={斐波那契Python}]
+python 代码
+\begin{pythoncode}
 def fibonacci(n):
     # Fibonacci number
     if n < 0:
@@ -55,11 +54,10 @@ def fibonacci(n):
     if n <= 1:
         return n
     return fibonacci(n-2) + fibonacci(n-1)
-\end{python}
+\end{pythoncode}
 
-C/C++ 代码可以直接使用\textbf{cpp}环境
-
-\begin{cpp}[caption={斐波那契C++}]
+C/C++ 代码
+\begin{cppcode}
 unsigned long Fibonacci(int n)
 {
     // Fibonacci start from 0
@@ -72,11 +70,16 @@ unsigned long Fibonacci(int n)
         return Fibonacci(n - 1) + Fibonacci(n - 2);
     }
 }
-\end{cpp}
+\end{cppcode}
 
-其他代码,使用\textbf{lstlisting}指明 \textbf{language}即可，如matlab代码
+其他代码,使用\textbf{mintd}指明 \textbf{language}即可，如matlab代码
 
-\begin{lstlisting}[caption={Matlab代码},language=Matlab]
+\begin{minted}[
+    frame=lines,
+    framesep=3mm,
+    baselinestretch=1.0,
+    fontsize=\zihao{5}
+]{matlab}
 function a = factorial(n)
 % return n!
     if n==0
@@ -84,4 +87,4 @@ function a = factorial(n)
     else
         a=n * factorial(n-1);
     end
-\end{lstlisting}
+\end{minted}

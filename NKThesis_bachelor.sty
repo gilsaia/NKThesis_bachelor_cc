@@ -1,0 +1,291 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{NKThesis_bachelor}
+
+% 设置页边距、页眉页脚
+\RequirePackage{geometry}
+\geometry{a4paper,
+        left=3.17cm,
+        right=3.17cm,
+        top=2.54cm,
+        bottom=2.54cm,
+        head=1.5cm,
+        foot=1.75cm
+        }
+
+% 调用需要的包
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{xunicode-addon}
+\RequirePackage{minted}
+\RequirePackage{xcolor}
+\RequirePackage{enumitem}
+\RequirePackage{fontspec}
+\RequirePackage{titlesec}
+\RequirePackage{titletoc}
+\RequirePackage[zihao=-4,linespread=1.5,heading=true]{ctex}
+\RequirePackage{fancyhdr}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{caption}
+\RequirePackage{keyval}
+\RequirePackage{ulem}
+\RequirePackage[backend = biber, style = gb7714-2015, defernumbers=true]{biblatex}
+\RequirePackage[bookmarksnumbered]{hyperref}
+\hypersetup{hidelinks}
+\defcounter{biburlnumpenalty}{3000}
+\defcounter{biburlucpenalty}{6000}
+\defcounter{biburllcpenalty}{9000}
+\renewcommand{\bibfont}{\zihao{5}}
+
+% 字体设置
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+
+% ctex相关设置
+\ctexset{
+        chapter={
+                format=\heiti\zihao{-3}\centering,
+                pagestyle=fancy,
+                beforeskip=17bp,
+                afterskip=16.5bp,
+                fixskip=true
+        },
+        section={
+                format=\heiti\zihao{4}\centering,
+                number=\chinese{section},
+                name={第,节},
+                beforeskip=12bp,
+                afterskip=10bp,
+        },
+        subsection={
+                format=\heiti\zihao{-4},
+                beforeskip=6bp,
+                afterskip=5bp
+        }
+}
+
+% 页眉、页脚设置
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\footnotesize}{\zihao{-5}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\chaptermark}[1]{
+        \markboth{\CTEXthechapter\quad #1}{}
+}
+\chead{\zihao{-5}\leftmark}
+\cfoot{\thepage}
+\renewcommand{\thepage}{\Roman{page}}
+
+% 目录设置
+\titlecontents{chapter}
+        [1cm]
+        {\zihao{-3}}%
+        {\contentslabel{50pt}}%
+        {}%
+        {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{0.5cm}}%
+\titlecontents{section}
+        [1cm]
+        {\zihao{4}}%
+        {\contentslabel{48pt}}%
+        {}%
+        {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{0.5cm}}%
+\titlecontents{subsection}
+        [1cm]
+        {\zihao{-4}}%
+        {\contentslabel{32pt}}%
+        {}%
+        {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{0.5cm}}%
+\newcommand{\thesiscontent}{
+        \clearpage
+        \markboth{\zihao{-5}目录}{}
+        \addcontentsline{toc}{chapter}{目录}
+        \renewcommand\contentsname{\heiti\zihao{3}\centerline{目\hspace{2em}录}\pagestyle{plain}}
+        \tableofcontents
+        \pagestyle{fancy}
+        \clearpage
+        \pagenumbering{arabic}
+}
+
+% 中英文摘要关键字
+\newenvironment{zhaiyao}{
+        \clearpage
+        \vspace{2ex}
+        \centerline{\zihao{4}\heiti 摘\hspace{2em}要}
+        \vspace*{2ex}
+        \markboth{\zihao{-5}摘要}{}
+        \addcontentsline{toc}{chapter}{摘要}
+}{}
+\newenvironment{guanjianci}{
+        \vspace{1ex}
+        \par{\noindent\heiti 关键词：}
+}{}
+\renewenvironment{abstract}{
+        \clearpage
+        \vspace{2ex}
+        \centerline{\zihao{4}\textbf{Abstract}}
+        \vspace*{2ex}
+        \markboth{\zihao{-5}Abstract}{}
+        \addcontentsline{toc}{chapter}{Abstract}
+}{}
+\newenvironment{keywords}{
+        \vspace{1ex}
+        \par{\noindent\textbf{Key Words:}}
+}{}
+
+% 定义、定理、引理
+\newtheorem{Theorem}{\kaishu\bfseries 定理}[chapter]
+\newtheorem{Definition}{\kaishu\bfseries 定义}[chapter]
+\newtheorem{Lemma}{\kaishu\bfseries 引理}[chapter]
+\newtheorem{Proof}{\kaishu\bfseries 证明}[chapter]
+
+% 列表
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\renewcommand{\labelenumii}{(\arabic{enumii})}
+\renewcommand{\labelenumiii}{(\Alph{enumiii})}
+\setlist{nosep}
+
+% 图表标题
+\captionsetup[figure]{font=small}
+\captionsetup[table]{font=small}
+
+% 代码段
+\usemintedstyle{friendly}
+\newminted{cpp}{frame=lines,framesep=3mm,baselinestretch=1.0,fontsize=\zihao{5}}
+\newminted{python}{frame=lines,framesep=3mm,baselinestretch=1.0,fontsize=\zihao{5}}
+
+% 脚注
+% use specific font inside \textcircled
+\AtBeginUTFCommand[\textcircled]{\begingroup\EnclosedNumbers}
+\AtEndUTFCommand[\textcircled]{\endgroup}
+
+% set char class and font for circled numbers
+% ref: https://stone-zeng.github.io/2019-02-09-circled-numbers
+\xeCJKDeclareCharClass{Default}{"24EA, "2460->"2473, "3251->"32BF}
+\newfontfamily\EnclosedNumbers{Times New Roman}
+
+% output counter "footnote" in circled number style
+\renewcommand\thefootnote{\textcircled{\@arabic\c@footnote}}
+
+% 绘图库
+\RequirePackage{tikz}
+% \RequirePackage{mathpazo}
+\usetikzlibrary{shapes.geometric, 
+        arrows,
+        decorations.pathmorphing,
+        backgrounds, 
+        positioning, 
+        fit,
+        petri, 
+        automata
+}
+\RequirePackage{subfigure}
+
+\def\XeLaTeX{X\kern-.1667em\lower.5ex\hbox{\reflectbox{E}}\kern-.1667em\LaTeX}
+
+\def\XeTeX{X\kern-.1667em\lower.5ex\hbox{\reflectbox{E}}\kern-.1667em\TeX}
+
+% 封面选项设置
+\define@key{NKT}{中文题目}{\def\NKT@title{#1}}
+\define@key{NKT}{英文题目}{\def\NKT@entitle{#1}}
+\define@key{NKT}{学号}{\def\NKT@number{#1}}
+\define@key{NKT}{专业}{\def\NKT@major{#1}}
+\define@key{NKT}{姓名}{\def\NKT@name{#1}}
+\define@key{NKT}{年级}{\def\NKT@grade{#1}}
+\define@key{NKT}{系别}{\def\NKT@department{#1}}
+\define@key{NKT}{学院}{\def\NKT@college{#1}}
+\define@key{NKT}{指导教师}{\def\NKT@teacher{#1}}
+\define@key{NKT}{完成日期}{\def\NKT@finishdate{#1}}
+
+\newcommand{\NKTSetup}[1]{
+        \setkeys{NKT}{#1}
+        \NKTtitlepage
+        \NKTstate
+        \pagenumbering{Roman}
+}
+\newcommand{\NKTtitlepage}{
+        \begingroup
+        \newpage
+        \thispagestyle{empty}
+        \zihao{-4}
+        \vspace{2ex}
+        \begin{center}
+                \fontsize{56bp}{56bp}\selectfont\bfseries 南\hspace{28bp}开\hspace{28bp}大\hspace{28bp}学
+        \end{center}
+        \zihao{-4}
+        \vspace{3ex}
+        \zihao{2}
+        \begin{center}
+                本科生毕业论文（设计）
+        \end{center}
+        \zihao{3}
+        \vspace{8ex}
+        \linespread{1.2}
+        \selectfont
+        \centering
+        \begin{tabular}{l@{}r}
+                \makebox[5em][r]{中文题目：} & {\bfseries\uline{\makebox[16em][l]{\NKT@title}}}\\
+        
+                \makebox[5em][r]{英文题目：} & {\uline{\makebox[16em][l]{\NKT@entitle}}}\\        
+        \end{tabular}
+        \vspace{20ex}
+        \linespread{1.2}
+        \selectfont
+
+        \begin{center}
+                学\hspace{2em}号：{\uline{\makebox[8em][l]{\NKT@number}}}
+
+                姓\hspace{2em}名：{\uline{\makebox[8em][l]{\NKT@name}}}
+
+                年\hspace{2em}级：{\uline{\makebox[8em][l]{\NKT@grade}}}
+
+                专\hspace{2em}业：{\uline{\makebox[8em][l]{\NKT@major}}}
+
+                系\hspace{2em}别：{\uline{\makebox[8em][l]{\NKT@department}}}
+
+                学\hspace{2em}院：{\uline{\makebox[8em][l]{\NKT@college}}}
+
+                指导老师：{\uline{\makebox[8em][l]{\NKT@teacher}}}
+
+                完成日期：{\uline{\makebox[8em][l]{\NKT@finishdate}}}
+        \end{center}
+        \clearpage
+        \endgroup
+}
+\newcommand{\NKTstate}{
+        \begingroup
+        \newpage
+        \thispagestyle{empty}
+        \zihao{-3}
+        \vspace*{2ex}
+        \begin{center}
+                \heiti\zihao{2}
+                关于南开大学本科生毕业论文（设计）
+                
+                的声明
+        \end{center}
+        \zihao{2}
+        \vspace*{1ex}
+
+        \zihao{-3}
+        本人郑重声明：所呈交的学位论文，是本人在指导教师指导下，进行研究工作所取得的成果。除文中已经注明引用的内容外，本学位论文的研究成果不包含任何他人创作的、已公开发表或没有公开发表的作品内容。对本论文所涉及的研究工作做出贡献的其他个人和集体，均已在文中以明确方式标明。本学位论文原创性声明的法律责任由本人承担。
+
+        \vspace*{1ex}
+        \begin{flushright}
+                学位论文作者签名：\makebox[8em]{}
+
+                年\makebox[2em]{}月\makebox[3em]{}日
+        \end{flushright}
+
+        \vspace*{2ex}
+        本人声明：该学位论文是本人指导学生完成的研究成果，已经审阅过论文的全部内容，并能够保证题目、关键词、摘要部分中英文内容的一致性和准确性。
+
+        \vspace*{1ex}
+        \begin{flushright}
+                学位论文指导教师签名：\makebox[7.5em]{}
+
+                年\makebox[2em]{}月\makebox[3em]{}日
+        \end{flushright}
+        \clearpage
+        \endgroup
+}
