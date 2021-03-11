@@ -186,8 +186,13 @@
 \def\XeTeX{X\kern-.1667em\lower.5ex\hbox{\reflectbox{E}}\kern-.1667em\TeX}
 
 % 封面选项设置
+\newif\iftitlemulti\titlemultifalse
+\newif\ifentitlemulti\entitlemultifalse
+\newif\ifextrateacher\extrateacherfalse
 \define@key{NKT}{中文题目}{\def\NKT@title{#1}}
+\define@key{NKT}{中文题目第二行}{\titlemultitrue\def\NKT@titletwo{#1}}
 \define@key{NKT}{英文题目}{\def\NKT@entitle{#1}}
+\define@key{NKT}{英文题目第二行}{\entitlemultitrue\def\NKT@entitletwo{#1}}
 \define@key{NKT}{学号}{\def\NKT@number{#1}}
 \define@key{NKT}{专业}{\def\NKT@major{#1}}
 \define@key{NKT}{姓名}{\def\NKT@name{#1}}
@@ -195,6 +200,7 @@
 \define@key{NKT}{系别}{\def\NKT@department{#1}}
 \define@key{NKT}{学院}{\def\NKT@college{#1}}
 \define@key{NKT}{指导教师}{\def\NKT@teacher{#1}}
+\define@key{NKT}{合作教师}{\extrateachertrue\def\NKT@extrateacher{#1}}
 \define@key{NKT}{完成日期}{\def\NKT@finishdate{#1}}
 
 \newcommand{\NKTSetup}[1]{
@@ -225,8 +231,13 @@
         \centering
         \begin{tabular}{l@{}r}
                 \makebox[5em][r]{中文题目：} & {\bfseries\uline{\makebox[16em][l]{\NKT@title}}}\\
-        
-                \makebox[5em][r]{英文题目：} & {\uline{\makebox[16em][l]{\NKT@entitle}}}\\        
+                \iftitlemulti
+                & {\bfseries\uline{\makebox[16em][l]{\NKT@titletwo}}}\\
+                \fi
+                \makebox[5em][r]{英文题目：} & {\uline{\makebox[16em][l]{\NKT@entitle}}}\\  
+                \ifentitlemulti
+                & {\uline{\makebox[16em][l]{\NKT@entitletwo}}}\\
+                \fi      
         \end{tabular}
         \vspace{20ex}
         \linespread{1.2}
@@ -246,6 +257,10 @@
                 学\hspace{2em}院：{\uline{\makebox[8em][l]{\NKT@college}}}
 
                 指导老师：{\uline{\makebox[8em][l]{\NKT@teacher}}}
+
+                \ifextrateacher
+                \hspace{5em}{\uline{\makebox[8em][l]{\NKT@extrateacher}}}
+                \fi
 
                 完成日期：{\uline{\makebox[8em][l]{\NKT@finishdate}}}
         \end{center}
