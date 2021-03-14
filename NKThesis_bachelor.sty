@@ -187,12 +187,16 @@
 
 % 封面选项设置
 \newif\iftitlemulti\titlemultifalse
+\newif\iftitlemultii\titlemultiifalse
 \newif\ifentitlemulti\entitlemultifalse
+\newif\ifentitlemultii\entitlemultiifalse
 \newif\ifextrateacher\extrateacherfalse
 \define@key{NKT}{中文题目}{\def\NKT@title{#1}}
 \define@key{NKT}{中文题目第二行}{\titlemultitrue\def\NKT@titletwo{#1}}
+\define@key{NKT}{中文题目第三行}{\titlemultiitrue\def\NKT@titlethree{#1}}
 \define@key{NKT}{英文题目}{\def\NKT@entitle{#1}}
 \define@key{NKT}{英文题目第二行}{\entitlemultitrue\def\NKT@entitletwo{#1}}
+\define@key{NKT}{英文题目第三行}{\entitlemultiitrue\def\NKT@entitlethree{#1}}
 \define@key{NKT}{学号}{\def\NKT@number{#1}}
 \define@key{NKT}{专业}{\def\NKT@major{#1}}
 \define@key{NKT}{姓名}{\def\NKT@name{#1}}
@@ -234,10 +238,16 @@
                 \iftitlemulti
                 & {\bfseries\uline{\makebox[16em][l]{\NKT@titletwo}}}\\
                 \fi
+                \iftitlemultii
+                & {\bfseries\uline{\makebox[16em][l]{\NKT@titlethree}}}\\
+                \fi
                 \makebox[5em][r]{英文题目：} & {\uline{\makebox[16em][l]{\NKT@entitle}}}\\  
                 \ifentitlemulti
                 & {\uline{\makebox[16em][l]{\NKT@entitletwo}}}\\
                 \fi      
+                \ifentitlemultii
+                & {\uline{\makebox[16em][l]{\NKT@entitlethree}}}\\
+                \fi   
         \end{tabular}
         \vspace{20ex}
         \linespread{1.2}
