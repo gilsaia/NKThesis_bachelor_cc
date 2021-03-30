@@ -45,23 +45,34 @@
 % ctex相关设置
 \ctexset{
         chapter={
-                format=\heiti\zihao{-3}\centering,
+                format=\heiti\zihao{-3},
                 pagestyle=fancy,
                 beforeskip=17bp,
                 afterskip=16.5bp,
-                fixskip=true
+                fixskip=true,
+                name={},
+                aftername={、\hspace{6bp}},
+                hang=true,
+                indent=24bp,
         },
         section={
-                format=\heiti\zihao{4}\centering,
+                format=\heiti\zihao{4},
                 number=\chinese{section},
-                name={第,节},
+                name={（,）},
                 beforeskip=12bp,
                 afterskip=10bp,
+                aftername={\hspace{6bp}},
+                hang=true,
+                indent=24bp,
         },
         subsection={
                 format=\heiti\zihao{-4},
+                number={\arabic{subsection}.},
                 beforeskip=6bp,
-                afterskip=5bp
+                afterskip=5bp,
+                aftername={\hspace{6bp}},
+                hang=true,
+                indent=24bp,
         }
 }
 
@@ -82,7 +93,7 @@
 \titlecontents{chapter}
         [1cm]
         {\zihao{-3}}%
-        {\contentslabel{50pt}}%
+        {\contentslabel{54pt}}%
         {}%
         {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{0.5cm}}%
 \titlecontents{section}
