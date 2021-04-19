@@ -10,6 +10,10 @@
 [南开大学研究生（博士生）毕业论文LaTeX模板](https://github.com/NewFuture/NKThesis)
 
 thanks to @darfux， @NewFuture
+
+## Overleaf使用
+经简单尝试目前版本可在overleaf使用 直接将整个项目打包之后将压缩包上传到Overleaf项目中即可 **之后将项目编译器切换为xelatex即可使用**
+
 ## 注意事项
 - 除了需要安装`latex`环境以外，模板中使用的代码高亮宏包`minted`需要`python`环境以及`python`包`pygments`
 - 目前的毕设标准存在冲突，主要参考的是在20年新发布的[南开大学本科毕业论文（设计）指导手册](https://cc.nankai.edu.cn/2020/1119/c13295a318941/page.htm)，如果有什么确定存在问题的样式非常欢迎提Issue讨论或提pr修改
