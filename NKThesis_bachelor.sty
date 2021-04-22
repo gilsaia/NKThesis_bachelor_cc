@@ -50,7 +50,8 @@
                 pagestyle=fancy,
                 beforeskip=17bp,
                 afterskip=35bp,
-                fixskip=true
+                fixskip=true,
+                tocline=\CTEXifname{\numberline{\CTEXthechapter\hspace{.3em}}}{}#2
         },
         section={
                 format=\heiti\zihao{4}\bfseries\centering,
@@ -81,23 +82,23 @@
 
 % 目录设置
 \titlecontents{chapter}
-        [1cm]
+        [0cm]
         {\zihao{-3}}%
-        {\contentslabel{50pt}}%
+        {\contentslabel{60pt}}%
         {}%
-        {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{0.5cm}}%
+        {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{0cm}}%
 \titlecontents{section}
-        [2cm]
+        [2.8cm]
         {\zihao{4}}%
         {\contentslabel{48pt}}%
         {}%
-        {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{0.5cm}}%
+        {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{0cm}}%
 \titlecontents{subsection}
-        [2.7cm]
+        [3.5cm]
         {\zihao{-4}}%
         {\contentslabel{32pt}}%
         {}%
-        {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{0.5cm}}%
+        {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{0cm}}%
 \newcommand{\thesiscontent}{
         \clearpage
         \markboth{\zihao{-5}目录}{}
