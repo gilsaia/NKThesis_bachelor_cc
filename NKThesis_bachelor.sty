@@ -39,6 +39,7 @@
 \renewcommand{\bibfont}{\zihao{5}}
 
 % 字体设置
+
 \setmainfont{Times New Roman}
 \setCJKmainfont{simsun.ttc}
 
@@ -235,19 +236,19 @@
         \selectfont
         \centering
         \begin{tabular}{l@{}r}
-                \makebox[5em][r]{中文题目：} & {\bfseries\uline{\makebox[16em][l]{\NKT@title}}}\\
+                \makebox[5em][r]{中文题目：} & {\bfseries\uline{\makebox[16em][c]{\NKT@title}}}\\
                 \iftitlemulti
-                & {\bfseries\uline{\makebox[16em][l]{\NKT@titletwo}}}\\
+                & {\bfseries\uline{\makebox[16em][c]{\NKT@titletwo}}}\\
                 \fi
                 \iftitlemultii
-                & {\bfseries\uline{\makebox[16em][l]{\NKT@titlethree}}}\\
+                & {\bfseries\uline{\makebox[16em][c]{\NKT@titlethree}}}\\
                 \fi
-                \makebox[5em][r]{英文题目：} & {\uline{\makebox[16em][l]{\NKT@entitle}}}\\  
+                \makebox[5em][r]{外文题目：} & {\uline{\makebox[16em][c]{\NKT@entitle}}}\\  
                 \ifentitlemulti
-                & {\uline{\makebox[16em][l]{\NKT@entitletwo}}}\\
+                & {\uline{\makebox[16em][c]{\NKT@entitletwo}}}\\
                 \fi      
                 \ifentitlemultii
-                & {\uline{\makebox[16em][l]{\NKT@entitlethree}}}\\
+                & {\uline{\makebox[16em][c]{\NKT@entitlethree}}}\\
                 \fi   
         \end{tabular}
         \vspace{20ex}
@@ -255,25 +256,25 @@
         \selectfont
 
         \begin{center}
-                学\hspace{2em}号：{\uline{\makebox[8em][l]{\NKT@number}}}
+                学\hspace{2em}号：{\uline{\makebox[8em][c]{\NKT@number}}}
 
-                姓\hspace{2em}名：{\uline{\makebox[8em][l]{\NKT@name}}}
+                姓\hspace{2em}名：{\uline{\makebox[8em][c]{\NKT@name}}}
 
-                年\hspace{2em}级：{\uline{\makebox[8em][l]{\NKT@grade}}}
+                年\hspace{2em}级：{\uline{\makebox[8em][c]{\NKT@grade}}}
 
-                专\hspace{2em}业：{\uline{\makebox[8em][l]{\NKT@major}}}
+                专\hspace{2em}业：{\uline{\makebox[8em][c]{\NKT@major}}}
 
-                系\hspace{2em}别：{\uline{\makebox[8em][l]{\NKT@department}}}
+                系\hspace{2em}别：{\uline{\makebox[8em][c]{\NKT@department}}}
 
-                学\hspace{2em}院：{\uline{\makebox[8em][l]{\NKT@college}}}
+                学\hspace{2em}院：{\uline{\makebox[8em][c]{\NKT@college}}}
 
-                指导老师：{\uline{\makebox[8em][l]{\NKT@teacher}}}
+                指导老师：{\uline{\makebox[8em][c]{\NKT@teacher}}}
 
                 \ifextrateacher
-                \hspace{5em}{\uline{\makebox[8em][l]{\NKT@extrateacher}}}
+                \hspace{5em}{\uline{\makebox[8em][c]{\NKT@extrateacher}}}
                 \fi
 
-                完成日期：{\uline{\makebox[8em][l]{\NKT@finishdate}}}
+                完成日期：{\uline{\makebox[8em][c]{\NKT@finishdate}}}
         \end{center}
         \clearpage
         \endgroup
