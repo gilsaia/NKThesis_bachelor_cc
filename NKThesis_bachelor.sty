@@ -237,12 +237,12 @@
         \selectfont
         \centering
         \begin{tabular}{l@{}r}
-                \makebox[5em][r]{中文题目：} & {\bfseries\uline{\makebox[16em][l]{\NKT@title}}}\\
+                \makebox[5em][r]{中文题目：} & {\kaishu\bfseries\uline{\makebox[16em][l]{\NKT@title}}}\\
                 \iftitlemulti
-                & {\bfseries\uline{\makebox[16em][l]{\NKT@titletwo}}}\\
+                & {\kaishu\bfseries\uline{\makebox[16em][l]{\NKT@titletwo}}}\\
                 \fi
                 \iftitlemultii
-                & {\bfseries\uline{\makebox[16em][l]{\NKT@titlethree}}}\\
+                & {\kaishu\bfseries\uline{\makebox[16em][l]{\NKT@titlethree}}}\\
                 \fi
                 \makebox[5em][r]{外文题目：} & {\uline{\makebox[16em][l]{\NKT@entitle}}}\\  
                 \ifentitlemulti
@@ -257,25 +257,25 @@
         \selectfont
 
         \begin{center}
-                学\hspace{2em}号：{\uline{\makebox[9em][l]{\NKT@number}}}
+                学\hspace{2em}号：{\kaishu\uline{\makebox[9em][l]{\NKT@number}}}
 
-                姓\hspace{2em}名：{\uline{\makebox[9em][l]{\NKT@name}}}
+                姓\hspace{2em}名：{\kaishu\uline{\makebox[9em][l]{\NKT@name}}}
 
-                年\hspace{2em}级：{\uline{\makebox[9em][l]{\NKT@grade}}}
+                年\hspace{2em}级：{\kaishu\uline{\makebox[9em][l]{\NKT@grade}}}
 
-                专\hspace{2em}业：{\uline{\makebox[9em][l]{\NKT@major}}}
+                专\hspace{2em}业：{\kaishu\uline{\makebox[9em][l]{\NKT@major}}}
 
-                系\hspace{2em}别：{\uline{\makebox[9em][l]{\NKT@department}}}
+                系\hspace{2em}别：{\kaishu\uline{\makebox[9em][l]{\NKT@department}}}
 
-                学\hspace{2em}院：{\uline{\makebox[9em][l]{\NKT@college}}}
+                学\hspace{2em}院：{\kaishu\uline{\makebox[9em][l]{\NKT@college}}}
 
-                指导老师：{\uline{\makebox[9em][l]{\NKT@teacher}}}
+                指导老师：{\kaishu\uline{\makebox[9em][l]{\NKT@teacher}}}
 
                 \ifextrateacher
-                \hspace{5em}{\uline{\makebox[9em][l]{\NKT@extrateacher}}}
+                \hspace{5em}{\kaishu\uline{\makebox[9em][l]{\NKT@extrateacher}}}
                 \fi
 
-                完成日期：{\uline{\makebox[9em][l]{\NKT@finishdate}}}
+                完成日期：{\kaishu\uline{\makebox[9em][l]{\NKT@finishdate}}}
         \end{center}
         \clearpage
         \endgroup
@@ -284,35 +284,32 @@
         \begingroup
         \newpage
         \thispagestyle{empty}
-        \zihao{-3}
+        \zihao{-4}
         \vspace*{2ex}
         \begin{center}
-                \heiti\zihao{2}
-                关于南开大学本科生毕业论文（设计）
-                
-                的声明
+                \heiti\zihao{3}
+                关于南开大学本科生毕业论文（设计）的声明
         \end{center}
-        \zihao{2}
-        \vspace*{1ex}
+        \vspace*{2cm}
 
-        \zihao{-3}
+        \zihao{-4}
         本人郑重声明：所呈交的学位论文，是本人在指导教师指导下，进行研究工作所取得的成果。除文中已经注明引用的内容外，本学位论文的研究成果不包含任何他人创作的、已公开发表或没有公开发表的作品内容。对本论文所涉及的研究工作做出贡献的其他个人和集体，均已在文中以明确方式标明。本学位论文原创性声明的法律责任由本人承担。
 
-        \vspace*{1ex}
+        \vspace*{1.5cm}
         \begin{flushright}
-                学位论文作者签名：\makebox[8em]{}
+                学位论文作者签名：\makebox[5em]{}
 
-                年\makebox[2em]{}月\makebox[3em]{}日
+                年\makebox[2em]{}月\makebox[2em]{}日
         \end{flushright}
 
-        \vspace*{2ex}
+        \vspace*{2cm}
         本人声明：该学位论文是本人指导学生完成的研究成果，已经审阅过论文的全部内容，并能够保证题目、关键词、摘要部分中英文内容的一致性和准确性。
 
-        \vspace*{1ex}
+        \vspace*{1.5cm}
         \begin{flushright}
-                学位论文指导教师签名：\makebox[7.5em]{}
+                学位论文指导教师签名：\makebox[4.5em]{}
 
-                年\makebox[2em]{}月\makebox[3em]{}日
+                年\makebox[2em]{}月\makebox[2em]{}日
         \end{flushright}
         \clearpage
         \endgroup
