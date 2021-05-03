@@ -43,8 +43,23 @@
 \setmainfont{Times New Roman}
 \setCJKmainfont[ItalicFont={simkai.ttf}]{simsun.ttc}
 
+% 参考文献设置
+
 \DefineBibliographyStrings{english}{
         andothers={\textit{et al.}}
+}
+\newcommand{\NKbibliography}{
+	\ctexset{
+		chapter={
+			format=\heiti\zihao{4}\raggedright
+		}
+	}
+	\printbibliography
+	\ctexset{
+		chapter={
+			format=\heiti\zihao{-3}\bfseries\centering,   
+		}
+	}
 }
 
 % ctex相关设置
