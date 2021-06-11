@@ -57,7 +57,7 @@
 	\printbibliography
 	\ctexset{
 		chapter={
-			format=\heiti\zihao{-3}\bfseries\centering,   
+			format=\heiti\zihao{-3}\centering,   
 		}
 	}
 }
@@ -65,7 +65,7 @@
 % ctex相关设置
 \ctexset{
         chapter={
-                format=\heiti\zihao{-3}\bfseries\centering,
+                format=\heiti\zihao{3}\centering,
                 pagestyle=fancy,
                 beforeskip=17bp,
                 afterskip=35bp,
@@ -73,14 +73,14 @@
                 tocline=\CTEXifname{\numberline{\CTEXthechapter\hspace{.3em}}}{}#2
         },
         section={
-                format=\heiti\zihao{4}\bfseries\centering,
+                format=\heiti\zihao{-3}\centering,
                 number=\chinese{section},
                 name={第,节},
                 beforeskip=12bp,
                 afterskip=10bp,
         },
         subsection={
-                format=\heiti\zihao{-4},
+                format=\heiti\zihao{4},
                 beforeskip=6bp,
                 afterskip=5bp
         }
@@ -122,7 +122,7 @@
         \clearpage
         \markboth{\zihao{-5}目录}{}
         \addcontentsline{toc}{chapter}{目录}
-        \renewcommand\contentsname{\heiti\zihao{3}\centerline{目\hspace{2em}录}\pagestyle{plain}}
+        \renewcommand\contentsname{\heiti\zihao{3}\centerline{目\hspace{1em}录}\pagestyle{plain}}
         \tableofcontents
         \pagestyle{fancy}
         \clearpage
@@ -133,13 +133,13 @@
 \newenvironment{zhaiyao}{
         \clearpage
         \vspace{2ex}
-        \centerline{\zihao{4}\heiti 摘\hspace{2em}要}
+        \centerline{\zihao{4}\heiti 摘\hspace{1em}要}
         \vspace*{2ex}
         \markboth{\zihao{-5}摘要}{}
         \addcontentsline{toc}{chapter}{摘要}
 }{}
 \newenvironment{guanjianci}{
-        \vspace{1ex}
+        \vspace{2ex}
         \par{\noindent\heiti 关键词：}
 }{}
 \renewenvironment{abstract}{
@@ -151,15 +151,15 @@
         \addcontentsline{toc}{chapter}{Abstract}
 }{}
 \newenvironment{keywords}{
-        \vspace{1ex}
+        \vspace{2ex}
         \par{\noindent\textbf{Key Words:}}
 }{}
 
 % 定义、定理、引理
-\newtheorem{Theorem}{\kaishu\bfseries 定理}[chapter]
-\newtheorem{Definition}{\kaishu\bfseries 定义}[chapter]
-\newtheorem{Lemma}{\kaishu\bfseries 引理}[chapter]
-\newtheorem{Proof}{\kaishu\bfseries 证明}[chapter]
+\newtheorem{Theorem}{\indent\kaishu\bfseries 定理}[chapter]
+\newtheorem{Definition}{\indent\kaishu\bfseries 定义}[chapter]
+\newtheorem{Lemma}{\indent\kaishu\bfseries 引理}[chapter]
+\newtheorem{Proof}{\indent\kaishu\bfseries 证明}[chapter]
 
 % 列表
 \renewcommand{\labelenumi}{\arabic{enumi}.}
